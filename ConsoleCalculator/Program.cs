@@ -11,45 +11,56 @@ namespace ConsoleCalculator
             {
                 try
                 {
-                    //Console.WriteLine("Use X to exit \n ");
-                    //Console.ReadKey();
-                    //Console.Clear();
-
+                    double result = 0;
+                    Console.WriteLine(" Welcome to the Calculator \n ");
+                    
+                    Console.WriteLine(" Type first number:");
                     Console.Write("> ");
-                    int number1 = Convert.ToInt32(Console.ReadLine());
+                    string stringFirstNumber = (Console.ReadLine());
+                    double firstNumber = Convert.ToDouble(stringFirstNumber);
 
-                    Console.Write("> (+, -, /, *): ");
-                    string assigmentChoise = Console.ReadLine();
-
+                    Console.WriteLine(" Type second number:");
                     Console.Write("> ");
-                    int number2 = Convert.ToInt32(Console.ReadLine());
+                    string stringSecondNumber = (Console.ReadLine());
+                    double secondNumber = Convert.ToDouble(stringSecondNumber);
 
-                    //Console.Write("Enter assigment number (or -1 to exit): ");
-                    //var assigmentChoise = int.Parse(Console.ReadLine() ?? "");
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    switch (assigmentChoise)
+                    Console.WriteLine(" Type operation ( +  -  /  * ):");
+                    Console.Write("> ");
+                    string stringOperation = Console.ReadLine();
+
+                    switch (stringOperation)
                     {
                         case "+":
                             //RunAdditionMethod();
-                            Console.Write("> ");
-                            Console.Write(number1 + number2);
+                            result = firstNumber + secondNumber;
                             break;
-                        //case 2:
-                        //    break;
-                        //case 3:
-                        //    break;
-                        //case 4:
-                        //    break;
-                        //case 5:
-                        //    break;
-                        //case 6:
+
+                        case "-":
+                            //RunSubstractionMethod();
+                            result = firstNumber - secondNumber;
+                            break;
+                        
+                        case "/":
+                            //RunDivisionMethod();
+                            //if (firstNumber == 0 || secondNumber == 0)
+                            result = firstNumber / secondNumber;
+                            break;
+                        case "*":
+                            //RunMultiplicationMethod();
+                            result = firstNumber * secondNumber;
+                            break;
                         default:
                             Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("> This is not a valid assigment number!");
+                            Console.WriteLine(" Not a valid number!");
                             break;
                     }
+
+                    Console.Write("\n Result: " + stringFirstNumber + " " + stringOperation + " " + stringSecondNumber + " = ");
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.Write(result);
                     Console.ResetColor();
-                    Console.WriteLine("\n\n> Enter to continue or x to quit!");
+                    Console.WriteLine("\n\n Enter to continue or x to quit!");
+                    Console.Write("> ");
                     string assigmentKey = Console.ReadLine();
                     if (assigmentKey == "x")
                     {
@@ -62,14 +73,15 @@ namespace ConsoleCalculator
                 catch
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("> This is not a valid assigment number!");
+                    Console.WriteLine(" This is not a valid assigment number!");
                     Console.ResetColor();
-                    Console.WriteLine("> Hit any key to continue!");
+                    Console.WriteLine(" Hit any key to continue!");
                     Console.ReadKey();
                     Console.Clear();
                 }
             }
         }
+
     }
 
 }
